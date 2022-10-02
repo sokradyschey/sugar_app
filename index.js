@@ -1,9 +1,12 @@
 const express = require("express");
 const path = require("path");
+
 let app = express();
+
 const port = 3000;
 
-app.use(express.static(path.join(__dirname,'views')))
+app.use(express.static(path.join(__dirname,'public')));
+app.use('/images', express.static(__dirname + '/images'));
 
 app.get('/',(req,res)=>{
   res.sendFile('index.html')
