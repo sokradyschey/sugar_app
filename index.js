@@ -1,19 +1,14 @@
-const express = require('express');
-const sequelize = require("./app/model/dbconfig");
-const Glucose = require('./app/model/sugar');
-const port = 3000
+const express = require("express");
+const path = require("path");
+let app = express();
+const port = 3000;
 
-// automatically creating table on startup
-sequelize.sync({ force: true }).then(async () => {
-    console.log("db is ready...");
-  });
+app.use(express.static(path.join(__dirname,'views')))
 
-const app = express()
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/',(req,res)=>{
+  res.sendFile('index.html')
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Express is running on port ${port}`);
+});
