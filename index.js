@@ -1,13 +1,6 @@
 const express = require('express')
-const { Sequelize } = require('./app/model/dbconfig');
-const Glucose = require("./app/model/glucose");
 const app = express()
 const port = 3000
-
-// automatically creating table on startup
-sequelize.sync({ force: true }).then(async () => {
-  console.log("db is ready...");
-});
 
 // used to serve images, css files, and js files from public directory
 app.use(express.static('public'))

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glucose Tracking App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img href="/images/SSC-Logo.png" height="50px" width="50px">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="index.html">
+            Home
+          </a>
+          <a class="navbar-item" href="dashboard.html">
+            Dashboard
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- BG Daily Summary -->
+    <section>
+        <div class="column-gap">
+            <div class="box">
+                <h3 class="is-size-3">Daily Summary</h3>
+                <p>Daily Fasting: <span id="dailyFasting"></span></p>
+                <p>Daily Breakfast: <span id="dailyBreakfast"></span></p>
+                <p>Daily Lunch: <span id="dailyLunch"></span></p>
+                <p>Daily Dinner: <span id="dailyDinner"></span></p>
+                <p>Daily Average: <span id="dailyAvg"></span></p>
+            </div>
+            <div class="column-gap">
+                <div class="box">
+                    <h3 class="is-size-3">Entries</h3>
+                    <div class="entryContainer">
+                        <p id="trackingList"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>

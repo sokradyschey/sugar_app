@@ -21,10 +21,10 @@
     
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a class="navbar-item" href="index.html">
             Home
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href="dashboard.html">
             Dashboard
           </a>
         </div>
@@ -37,11 +37,11 @@
         <div class="control">
           <div class="select">
             <select>
-              <option><span id="">Morning Fasting Levels</span></option>
-              <option>Breakfast</option>
-              <option>Lunch</option>
-              <option>Dinner</option>
-              <option>Bedtime</option>
+              <option><span id="fasting">Morning Fasting Levels</span></option>
+              <option><span id="breakfast">Breakfast</option>
+              <option><span id="lunch">Lunch</span></option>
+              <option><span id="dinner">Dinner</span></option>
+              <option><span id="bedtime">Bedtime</span></option>
             </select>
           </div>
         </div>
@@ -49,7 +49,7 @@
       <div class="field">
         <label class="label">Glucose Level:</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+          <input class="input" type="text" placeholder="Text input" id="glucose_level">
         </div>
       </div>
       <div class="field">
@@ -73,13 +73,34 @@
       </div>
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-link">Submit</button>
+          <button class="button is-link" type="submit" onclick="submitLevels()">Submit</button>
         </div>
         <div class="control">
-          <button class="button is-link is-light">Cancel</button>
+          <button class="button is-link is-light" onclick="clearForm()">Cancel</button>
         </div>
       </div>
     </div>
   </section>
+  <section>
+    <div class="column-gap">
+        <div class="box">
+            <h3 class="is-size-3">Daily Summary</h3>
+            <p>Daily Fasting: <span id="dailyFasting"></span></p>
+            <p>Daily Breakfast: <span id="dailyBreakfast"></span></p>
+            <p>Daily Lunch: <span id="dailyLunch"></span></p>
+            <p>Daily Dinner: <span id="dailyDinner"></span></p>
+            <p>Daily Average: <span id="dailyAvg"></span></p>
+        </div>
+        <div class="column-gap">
+            <div class="box">
+                <h3 class="is-size-3">Entries</h3>
+                <div class="entryContainer">
+                    <p id="trackingList"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  <script src="app.js"></script>
   </body>
 </html>
