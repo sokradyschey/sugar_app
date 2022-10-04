@@ -1,17 +1,26 @@
-const express = require("express");
-const path = require("path");
+const express = require('express')
+const { Sequelize } = require('./app/model/dbconfig');
+const Glucose = require("./app/model/glucose");
+const app = express()
+const port = 3000
 
-let app = express();
-
-const port = 3000;
-
-app.use(express.static(path.join(__dirname,'public')));
-app.use('/images', express.static(__dirname + '/images'));
-
-app.get('/',(req,res)=>{
-  res.sendFile('index.html')
-})
-
-app.listen(port, () => {
-  console.log(`Express is running on port ${port}`);
+// automatically creating table on startup
+sequelize.sync({ force: true }).then(async () => {
+  console.log("db is ready...");
 });
+
+// used to serve images, css files, and js files from public directory
+app.use(express.static('public'))
+// used to serve files from views directory
+app.use(express.static('views'))
+
+// path to render /views html files
+const path = require('path')
+app.use( express.static(path.join(__dirname, 'public', 'views')));
+
+
+
+// start app on port 3000
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
